@@ -1,160 +1,228 @@
-<Espero que te guste mucho mi amor❤️>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi San Valentín?</title>
+    <title>¿Quieres ser mi novia?</title>
     <style>
-        /* General Styles */
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(to bottom, #f8cdda, #1d2b64);
-            color: #fff;
-            text-align: center;
-            padding: 0;
             margin: 0;
-            height: 100vh;
+            padding: 0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            box-sizing: border-box;
-        }
-
-        h1 {
-            font-size: 3.8em;
-            font-family: 'Dancing Script', cursive;
-            color: #ffb3b3;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-            color: #f1f1f1;
-            line-height: 1.5;
-        }
-
-        .heart {
-            font-size: 6em;
-            color: #ff4d94;
-            margin-bottom: 30px;
-            animation: heartbeat 1.5s infinite;
-        }
-
-        /* Button Styles */
-        .button {
-            background: linear-gradient(45deg, #ff66b2, #ff1e6c);
+            height: 100vh;
+            background: radial-gradient(circle, rgba(255, 105, 180, 0.9), rgba(255, 182, 193, 0.8));
             color: white;
-            font-size: 1.5em;
-            padding: 20px 40px;
+            overflow: hidden;
+            font-family: 'Dancing Script', cursive;
+            position: relative;
+        }
+
+        /* Fondo de partículas */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+            z-index: -1;
+            animation: particlesAnimation 15s linear infinite;
+        }
+
+        @keyframes particlesAnimation {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(100%, 100%);
+            }
+        }
+
+        /* Contenedor */
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 60px 100px;
+            border-radius: 30px;
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeInContainer 2s ease-out;
+        }
+
+        @keyframes fadeInContainer {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Título */
+        h1 {
+            font-size: 4rem;
+            color: #ff4b3a;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 182, 193, 0.8);
+            }
+            100% {
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 182, 193, 1);
+            }
+        }
+
+        /* Mensaje */
+        p {
+            font-size: 1.6rem;
+            color: #fff;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* Botón */
+        .btn {
+            padding: 18px 55px;
+            font-size: 2rem;
+            background: linear-gradient(145deg, #ff6f61, #ff4b3a);
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 10px;
-            width: 200px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .button:hover {
-            transform: scale(1.1);
-            background: linear-gradient(45deg, #ff1e6c, #ff66b2);
+        .btn:hover {
+            background: linear-gradient(145deg, #ff4b3a, #ff6f61);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .button:focus {
+        .btn:focus {
             outline: none;
         }
 
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
-
-        .footer {
+        /* Respuesta animada */
+        .response {
+            display: none;
+            font-size: 2rem;
+            color: #fffbfb;
             margin-top: 40px;
-            font-size: 1.2em;
-            color: #ffb3b3;
+            font-weight: 600;
+            animation: fadeInResponse 2s ease-out;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
-        /* Thank you message */
-        .thank-you-message, .no-thank-you-message {
-            font-size: 2.2em;
-            color: #ff66b2;
-            font-family: 'Dancing Script', cursive;
-            opacity: 0;
-            visibility: hidden; /* Añadido para ocultar los mensajes inicialmente */
-            transition: opacity 1s ease-in-out;
-            margin-top: 20px;
-            text-align: center;
+        @keyframes fadeInResponse {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        /* Soft shadow for elegance */
-        h1, p, .button {
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        /* Corazón de agradecimiento */
+        .thank-you-heart {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background-color: #ff4b3a;
+            clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
+            animation: thankYouAnimation 5s infinite;
+            display: none;
         }
 
-        /* Custom message styles */
-        .no-thank-you-message {
-            color: #ff4d94;
+        @keyframes thankYouAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.3);
+            }
+            100% {
+                transform: scale(1);
+            }
         }
+
+        /* Efecto de onda en el clic */
+        .wave-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            pointer-events: none;
+            animation: wave 0.6s ease-out;
+        }
+
+        @keyframes wave {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.7;
+            }
+            100% {
+                width: 200px;
+                height: 200px;
+                opacity: 0;
+            }
+        }
+
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Reproductor de música -->
-    <audio id="music" autoplay loop>
-        <source src="tu_musica.mp3" type="audio/mp3">
-        Tu navegador no soporta el elemento de audio.
-    </audio>
 
-    <h1 id="question">¿Quieres ser mi San Valentín?</h1>
-    <p>Desde el primer día que te conocí, mi vida cambió. Este San Valentín quiero compartirlo contigo. 💖</p>
-    <div class="heart">❤️</div>
-    <!-- Botones de sí y no -->
-    <div id="buttons">
-        <button class="button" onclick="showThankYouMessage()">¡Sí, claro! 💕</button>
-        <button class="button" onclick="showNoThanksMessage()">No, gracias 😞</button>
-    </div>
-    <div class="footer">
-        *Haz clic para responder 😉
+    <!-- Fondo de partículas animadas -->
+    <div class="particles"></div>
+
+    <div class="container">
+        <h1>¿Quieres ser mi novia?</h1>
+        <p>Desde que llegaste a mi vida, cada día ha sido más hermoso. Cada pensamiento es sobre ti, y quiero saber si te gustaría darme la oportunidad de ser tu novio🥺❤️.</p>
+        <button class="btn" id="btnYes">¡Sí, quiero ser tu novia!</button>
+        <div class="response" id="responseText">¡Gracias por aceptar! Te amo más de lo que las palabras pueden expresar🥹❤️❤️❤️. </div>
     </div>
 
-    <!-- Mensaje de agradecimiento que aparecerá después -->
-    <div id="thankYouMessage" class="thank-you-message">
-        ¡Muchas gracias por aceptar mi amor! Te amo mushooooooooooo 💖
-    </div>
-
-    <!-- Mensaje de respuesta negativa -->
-    <div id="noThanksMessage" class="no-thank-you-message">
-        ¡Oh no! 😭 Te seguiré queriendo de todos modos. 💔
-    </div>
+    <div class="thank-you-heart"></div>
 
     <script>
-        // Mostrar el mensaje de agradecimiento
-        function showThankYouMessage() {
-            // Ocultar la pregunta y los botones
-            document.getElementById('question').style.display = 'none';
-            document.getElementById('buttons').style.display = 'none';
+        // Para animar el clic con un efecto de onda
+        const button = document.getElementById("btnYes");
+        button.addEventListener("click", function(event) {
+            // Crear onda de clic
+            const wave = document.createElement("div");
+            wave.classList.add("wave-effect");
+            wave.style.left = `${event.clientX - button.offsetLeft - 100}px`;
+            wave.style.top = `${event.clientY - button.offsetTop - 100}px`;
+            button.appendChild(wave);
+            // Eliminar la onda después de la animación
+            setTimeout(() => wave.remove(), 600);
 
-            // Mostrar el mensaje de agradecimiento con transición
-            const thankYouMessage = document.getElementById('thankYouMessage');
-            thankYouMessage.style.visibility = 'visible';
-            thankYouMessage.style.opacity = 1;
-        }
-
-        // Mostrar el mensaje de rechazo
-        function showNoThanksMessage() {
-            // Ocultar la pregunta y los botones
-            document.getElementById('question').style.display = 'none';
-            document.getElementById('buttons').style.display = 'none';
-
-            // Mostrar el mensaje de rechazo con transición
-            const noThanksMessage = document.getElementById('noThanksMessage');
-            noThanksMessage.style.visibility = 'visible';
-            noThanksMessage.style.opacity = 1;
-        }
+            // Mostrar el mensaje de respuesta
+            document.getElementById("responseText").style.display = "block";
+            document.querySelector('.thank-you-heart').style.display = 'block'; // Corazón de agradecimiento
+            // Cambiar el texto del botón
+            button.textContent = "¡Te amo🥹❤️❤️❤️!";
+        });
     </script>
+
 </body>
 </html>
