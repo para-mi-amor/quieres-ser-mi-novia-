@@ -4,6 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Quieres ser mi novia?</title>
     <style>
+        /* Reset global */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
@@ -11,21 +18,21 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: radial-gradient(circle, rgba(255, 105, 180, 0.9), rgba(255, 182, 193, 0.8));
+            background: radial-gradient(circle, rgba(255, 182, 193, 0.8), rgba(227, 152, 225, 0.8));
             color: white;
             overflow: hidden;
             font-family: 'Dancing Script', cursive;
             position: relative;
         }
 
-        /* Fondo de partículas */
+        /* Fondo de partículas animadas */
         .particles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.1);
             pointer-events: none;
             z-index: -1;
             animation: particlesAnimation 15s linear infinite;
@@ -42,7 +49,7 @@
 
         /* Contenedor */
         .container {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             padding: 60px 100px;
             border-radius: 30px;
             max-width: 800px;
@@ -50,26 +57,16 @@
             position: relative;
             z-index: 1;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            animation: fadeInContainer 2s ease-out;
         }
 
-        @keyframes fadeInContainer {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Título */
+        /* Título - Letras brillantes con gradiente más fuerte */
         h1 {
             font-size: 4rem;
-            color: #ff4b3a;
+            background: linear-gradient(45deg, #f06292, #ba68c8, #ff4081);
+            -webkit-background-clip: text;
+            color: transparent;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 60px rgba(255, 105, 180, 0.8);
             animation: glow 1.5s ease-in-out infinite alternate;
         }
 
@@ -82,20 +79,21 @@
             }
         }
 
-        /* Mensaje */
+        /* Mensaje - Color rosa más intenso con sombra */
         p {
             font-size: 1.6rem;
-            color: #fff;
+            color: #f06292; /* Rosa fuerte */
             margin-bottom: 40px;
             line-height: 1.8;
             font-weight: 400;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
         }
 
         /* Botón */
         .btn {
             padding: 18px 55px;
             font-size: 2rem;
-            background: linear-gradient(145deg, #ff6f61, #ff4b3a);
+            background: linear-gradient(145deg, #ff4081, #f06292);
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -103,12 +101,10 @@
             font-weight: bold;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
 
         .btn:hover {
-            background: linear-gradient(145deg, #ff4b3a, #ff6f61);
+            background: linear-gradient(145deg, #f06292, #ff4081);
             transform: translateY(-5px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
         }
@@ -121,22 +117,10 @@
         .response {
             display: none;
             font-size: 2rem;
-            color: #fffbfb;
+            color: #ff4081; /* Rosa fuerte */
             margin-top: 40px;
             font-weight: 600;
-            animation: fadeInResponse 2s ease-out;
             text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
-        @keyframes fadeInResponse {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* Corazón de agradecimiento */
